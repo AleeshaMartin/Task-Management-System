@@ -1,0 +1,56 @@
+     <app-nav-bar></app-nav-bar>
+     <div id="body">
+     <div class="d-flex justify-content-center align-item-center vh-60">
+        <div class="text-white text-center p-3 m-4" style="width: 615px; height: 75px; background-color: rgb(39, 116, 193);">
+          <h2>Project Details</h2>
+        </div>
+      </div>
+      <div class="mx-auto w-50 p-5" style="font-size: 19px; background: #f2f2f2;">
+        <div class="row">
+          <div class="col-12 col-md-8 d-block overflow-auto text-start">
+            <div><strong>Project ID:</strong> {{ projectId }}</div>
+            <br />
+            <div><strong>Project Name:</strong> {{ projectName }}</div>
+            <br />
+            <div><strong>Project Description:</strong> {{ projectDescription }}</div>
+            <br />
+            <div><strong>Start Date:</strong> {{ projectStartDate }}</div>
+            <br />
+            <div><strong>End Date:</strong> {{ projectEndDate }}</div>
+            <br />
+            <div>
+              <strong>Team Members: </strong>
+              <span *ngFor="let member of projectTeammember; let last = last">
+                {{ member.label }}{{ !last ? ', ' : '' }}
+              </span>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
+            <button *ngIf="decodedToken.role === 'MANAGER'" class="btn btn-info btn-lg pt-3 pb-3 ps-4 pe-4 text-white"
+                    [routerLink]="['/edit-project', projectId]">
+              Edit Project
+            </button>
+            <br />
+            <button *ngIf="decodedToken.role === 'MANAGER'" class="btn btn-danger btn-lg pt-3 pb-3 ps-4 pe-4"
+                    (click)="deleteProject(projectId)">
+              Delete Project
+            </button>
+            <br />
+          </div>
+          <div class="m-2 text-center">
+            <button *ngIf="decodedToken.role === 'MANAGER'" class="btn btn-primary btn-lg pt-3 pb-3 ps-4 pe-4 text-white me-3 mb-2"
+                    [routerLink]="['/task-create']"
+                    [queryParams]="{ projectId: projectId, name: projectName }">
+              Add Task
+            </button>
+            <button class="btn btn-primary btn-lg pt-3 pb-3 ps-4 pe-4 text-white mb-2"
+                    [routerLink]="['/tasklist']" [queryParams]="{projectId: projectId}">
+                    
+              View Task Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    

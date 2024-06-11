@@ -1,0 +1,121 @@
+
+<app-nav-bar></app-nav-bar>
+<div id="body" >
+    <div class="d-flex justify-content-center align-item-center vh-60">
+      <div class="text-white p-3 m-4 text-center" style="width: 615px; height: 75px; background: #1a256f">
+        <h2>Task Details</h2>
+      </div>
+    </div>
+    <div class=" container d-flex justify-content-center align-item-center vh-60 mb-3 mt-2">
+      <button (click)="handleSortOrder()" class="btn btn-primary pt-2 pb-2 ps-4 pe-4 text-white me-3 mb-2">
+        Sort: {{ sortOrder === 'ascending' ? 'Ascending' : 'Descending' }}
+      </button>
+  
+      <div class="col-md-2">
+        <input
+          class="mb-3 form-control"
+          type="text"
+          placeholder="search.."
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="currentPage = 0"
+         
+        />
+      </div>
+    </div>
+    <ng-container *ngIf="filteredTasks.length === 0; else taskList">
+      <div class="container text-center">
+        <img
+          src="https://cdn3d.iconscout.com/3d/premium/thumb/task-not-found-4810738-4009510.png"
+          alt=""
+          height="300px"
+          width="270px"
+          style="max-width: 100%"
+        />
+        <h2 class="mb-5 text-center"> No Task Found !!</h2>
+      </div>
+    </ng-container>
+  
+    <ng-template #taskList>
+      <div
+        class="d-flex justify-content-center align-item-center vh-70"
+        *ngFor="let task of filteredTasks; let index = index"
+      >
+        <div
+          class="d-block overflow-auto bg-white shadow mb-4 p-5 rounded-2 float-start text-start"
+          style="width: 60%; font-size: 19px"
+        >
+          <label>
+            <strong>Project Id : </strong> {{ projectId }}
+          </label>
+          <br />
+          <br />
+          <label>
+            <strong>Task Id : </strong> {{ task.taskId }}
+          </label>
+          <br />
+          <br />
+          <label>
+            <strong>Task Name : </strong> {{ task.taskName }}
+          </label>
+          <br />
+          <br />
+          <label>
+            <strong>Task Description : </strong> {{ task.taskDescription }}
+          </label>
+          <br />
+          <br />
+          <ng-container *ngIf="role === 'MANAGER'">
+            <label>
+              <strong>Assigned to : </strong> EMP ID {{ task.assignedTo }}
+            </label>
+            <br />
+            <br />
+          </ng-container>
+          <label>
+            <strong>Task Priority : </strong> {{ task.priority }}
+          </label>
+          <br />
+          <br />
+          <label>
+            <i class="fa fa-calendar"></i> <strong>Deadline : </strong> {{ task.deadline }}
+          </label>
+          <br />
+          <br />
+          <label>
+            <strong>Task Status : </strong>
+            <span [ngClass]="getStatusColorClass(task.status)">{{ task.status }}</span>
+          </label>
+          <br />
+          <br />
+          <div class="d-flex justify-content-center align-item-center vh-60">
+            <a [routerLink]="['/edittask/:projectId/task.taskId']" [queryParams]="{projectId: projectId, taskId: task.taskId}">
+              <button class="btn btn-info btn-lg pt-3 pb-3 ps-4 pe-4 text-white me-3">
+                Edit Task
+              </button>
+            </a>
+            <ng-container *ngIf="role === 'MANAGER'">
+              <button
+                class="btn btn-danger btn-lg pt-3 pb-3 ps-4 pe-4"
+                (click)="deleteTask(task.taskId)"
+              >
+                Delete Task
+              </button>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  
+    <!-- <div class="pagination-container" *ngIf="filteredTasks.length > 0">
+      <ngb-pagination
+        [(page)]="currentPage"
+        [pageSize]=2
+        [collectionSize]="filteredTasks.length"
+        (pageChange)="handlePageChange($event)"
+        [maxSize]="2"
+        [rotate]="true"
+        [boundaryLinks]="true"
+      ></ngb-pagination>
+    </div> -->
+  </div>
+  

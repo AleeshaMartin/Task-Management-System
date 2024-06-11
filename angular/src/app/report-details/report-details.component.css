@@ -1,0 +1,57 @@
+.container {
+    margin-top: 2rem;
+  }
+  
+  .btn-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-success .fa-file-pdf {
+    margin-right: 0.5rem;
+  }
+  
+  .print-report {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  .table {
+    margin-bottom: 0;
+  }
+  
+  .table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .table td,
+  .table th {
+    padding: 0.75rem;
+    vertical-align: middle;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  @media (max-width: 767.98px) {
+    .container {
+      margin-top: 1rem;
+    }
+  
+    .print-report {
+      padding: 1rem;
+    }
+  }
+  

@@ -1,0 +1,28 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #558bdd;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+.rightcorner{
+    position: absolute;
+  top: 20px;
+  right: 10px;
+  display:inline;
+    color: #f3eded;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform:uppercase;
+    margin-left:10px;
+    margin-right:10px;
+}

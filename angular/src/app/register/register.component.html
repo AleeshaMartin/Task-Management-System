@@ -1,0 +1,110 @@
+<section class="vh-130" style="background-color:rgb(35, 143, 143);">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+   
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+   
+                  <form [formGroup]="contactForm" class="mx-1 mx-md-4">
+   
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example1c" class="form-control" [(ngModel)]="firstName" formControlName="firstName" placeholder="First Name" required/>
+                        <span *ngIf="contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.dirty || contactForm.get('firstName')?.touched)">
+                          <small class="text-danger"
+                              *ngIf="contactForm.get('firstName')?.hasError('required')"
+                          >This field is required.</small>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                            <input type="text" id="form3Example1c" class="form-control" [(ngModel)]="lastName" formControlName="lastName"  placeholder="Last Name" required />
+                            <span *ngIf="contactForm.get('lastName')?.invalid && (contactForm.get('lastName')?.dirty || contactForm.get('lastName')?.touched)">
+                              <small class="text-danger"
+                                  *ngIf="contactForm.get('lastName')?.hasError('required')"
+                              >This field is required.</small>
+                            </span> 
+                          </div>
+                    </div>
+                    
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example4cd" class="form-control" [(ngModel)]="username" formControlName="username" placeholder="User Name" required/>
+                        <span *ngIf="contactForm.get('username')?.invalid && (contactForm.get('username')?.dirty || contactForm.get('username')?.touched)">
+                          <small class="text-danger"
+                              *ngIf="contactForm.get('username')?.hasError('required')"
+                          >This field is required.</small>
+                        </span>                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="email" id="form3Example3c" class="form-control" [(ngModel)]="email"  placeholder="Email" formControlName="email" required/>
+                        <span *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)">
+                          <small class="text-danger"
+                              *ngIf="contactForm.get('email')?.hasError('required')"
+                          >This field is required.</small>
+                          <small class="text-danger"
+                              *ngIf="contactForm.get('email')?.hasError('email')"
+                          >Please enter correct email address</small>
+                        </span>
+                      </div>
+                    </div>
+                   
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="bi bi-telephone"></i> -->
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="password" id="form3Example4c" class="form-control" [(ngModel)]="password" formControlName="password" placeholder="Password" required/>
+                        <span *ngIf="contactForm.get('password')?.invalid && (contactForm.get('password')?.dirty || contactForm.get('password')?.touched)">
+                          <small class="text-danger"
+                              *ngIf="contactForm.get('password')?.hasError('required')"
+                          >This field is required.</small>
+                        </span> 
+                      </div>
+                    </div>
+   
+   
+                    <div class="form-group">
+                        <label class="mr-3">User Type:</label>
+                        <div class="d-flex flex-wrap text-center justify-content-center gap-4">
+                            <div class="form-check mr-3"><input type="radio" name="role" value="USER" [(ngModel)]="role" formControlName="role" class="form-check-input" required>
+                                <label class="form-check-label">User</label></div><div class="form-check">
+                                    <input type="radio" name="role" value="MANAGER" [(ngModel)]="role" formControlName="role"  class="form-check-input">
+                                    <label class="form-check-label">Manager</label>
+                                </div>
+                            </div>
+                        </div>
+   
+   
+                   
+   
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="reset" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" (click)="save()">Register</button>
+                    </div>
+   
+                  </form>
+   
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+   
+                  <img src="assets\images\AnyConv.com__project-mangement-home.png"
+                    class="img-fluid" alt="Sample image">
+   
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

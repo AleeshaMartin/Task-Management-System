@@ -1,0 +1,54 @@
+
+<nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark w-100 sticky-top" style="background-color: #1b2430;">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-4" routerLink="/">PMT</a>
+      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="sidebar offcanvas offcanvas-end" id="offcanvasNavbar" style="background-color: #2a3239;">
+        <div class="offcanvas-header text-white border-bottom p-3">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">PMT</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end ms-auto ps-3">
+            <li class="nav-item ps-lg-3">
+              <a class="nav-link" style="font-size: 20px; border-bottom: 2px solid transparent; transition: border-color 0.5s;"
+                routerLink="/login" (mouseenter)="onMouseEnter($event)" (mouseleave)="onMouseLeave($event)">
+                <i class="fas fa-sign-in-alt pe-1 text-white d-inline-block d-md-none d-lg-none"></i> Login/Signup
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 justify-content-center align-items-center">
+        <div class="mt-5">
+          <div class="heading_container">
+            <h1 id="scrollspyHeading1" class="text-center" style="font-family: 'Roboto Slab'; color: #19888f;">Project Management Tool</h1>
+          </div>
+          <p style="font-size: 19px; text-align: justify; margin-top: 20px;">
+            A project management tool is software that assists teams and project managers in organising, managing, and centralising their projects. It offers a centralised platform for team collaboration, task management and progress tracking for project managers and their teams. By allowing users to manage activities, resources and deadlines in a single location, the project management tool seeks to increase project management's effectiveness, communication and productivity.
+          </p>
+          <br />
+          <a routerLink="/register">
+            <button class="btn btn-warning btn-lg">Get Started</button>
+          </a>
+        </div>
+      </div>
+  
+      <div class="col-md-6 ">
+        <div class="img-box">
+          <img src="assets\images\AnyConv.com__project-home.png" height="450px" width="650px" style="max-width: 100%;" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  

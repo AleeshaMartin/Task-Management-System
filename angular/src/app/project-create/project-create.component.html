@@ -1,0 +1,75 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center vh-100" style="max-height: 90vh;">
+      <div class="col-0 col-md-2 col-lg-5 mx-auto">
+        <img class="form-img" src="../.././assets/images/AnyConv.com__project-edit.png" height="450px" width="400px" alt="">
+      </div>
+      <div class="col-12 col-md-8 col-lg-7 justify-content-center align-items-center">
+        <div class="card shadow border-0 my-auto px-0 rounded">
+          <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+            <h1 class="text-center text-white p-2" style="background-color: rgb(26, 37, 111);">
+              <p>New Project</p>
+            </h1>
+  
+            <div class="row p-2 m-2">
+              <p class="col-md-4 fw-bold col-12">
+                Project Name<span class="text-danger"> *</span>
+              </p>
+              <input type="text" class="col-md-8 col-12 p-2" name="projectName" [(ngModel)]="project.projectName" placeholder="Enter Project Name" required>
+            </div>
+  
+            <div class="row p-2 m-2">
+              <p class="col-md-4 fw-bold col-12">
+                Start Date<span class="text-danger"> *</span>
+              </p>
+              <input type="date" class="col-md-8 col-12 p-2" name="startDate" [(ngModel)]="project.startDate" [min]="today" required>
+            </div>
+  
+            <div class="row p-2 m-2">
+              <p class="col-md-4 fw-bold col-12">
+                End Date<span class="text-danger"> *</span>
+              </p>
+              <input type="date" class="col-md-8 col-12" name="endDate" [(ngModel)]="project.endDate" [min]="project.startDate" required>
+            </div>
+  
+            <div class="row p-2 m-2">
+              <p class="col-md-4 fw-bold col-12">Description<span class="text-danger"> *</span></p>
+              <textarea class="col-md-8 col-12 flex-nowrap" name="description" [(ngModel)]="project.description" placeholder="Enter Project Description..." rows="3" required></textarea>
+            </div>
+  
+
+   <div class="row p-2 m-2">
+    <p class="col-md-4 fw-bold col-12">
+      Add Team Member<span class="text-danger"> *</span>
+    </p>
+    <div class="col-md-8 col-12 flex-nowrap p-2">
+      <div class="d-flex align-items-center mb-2" *ngFor="let member of project.members; let i=index">
+        <select class="form-select" name="members[{{ i }}].value" [(ngModel)]="member.value">
+          <option value="">Select Team Member</option>
+          <option *ngFor="let user of users" [value]="user.id">{{ getUserName(user) }}</option>
+        </select>
+        <button type="button" class="btn btn-danger btn-sm ms-auto" (click)="removeMember(i)">Remove</button>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" (click)="addMember()">Add Member</button>
+    </div>
+  </div>
+            <hr class="m-0">
+  
+            <div class="d-flex align-items-center justify-content-center m-2">
+              <button class="btn btn-success btn-md m-2 text-white p-2 rounded-0" style="width: 100px;" [disabled]="projectForm.invalid">
+                Add New
+              </button>
+              <a routerLink="/dashboard"><button class="btn btn-info m-2 btn-md text-white p-2 rounded-0" style="width: 100px;">
+                Back
+              </button></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loadingUsers>
+    <option disabled>Loading users...</option>
+  </ng-template>
+  

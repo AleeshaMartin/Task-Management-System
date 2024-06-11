@@ -1,0 +1,106 @@
+<app-nav-bar></app-nav-bar>
+<div class="main" id="body" >
+    <div class="Form-container position-absolute p-5 rounded-2 d-flex justify-content-center bg-light position-absolute" style="width: 700px !important; height: 500px !important; transform: translate(-50%,-50%); top: 50%; left: 50%;">
+      <form class="Form max-vh-4 mx-auto align-items-center" name="taskcreation" (ngSubmit)="onSubmit()">
+        <div class="text-center">
+          <h1 class="text-white" style="padding-top: 5px; padding-bottom: 5px; font-size: 30px; transform: translateY(-15px); width: 600px; height: 50px; background-color: rgb(39, 116, 193);">
+            TASK CREATION
+          </h1>
+          <p style="font-weight: bold;">Project Id: {{ projectId }}</p>
+          <p style="font-weight: bold;">Project Name: {{ name }}</p>
+        </div>
+        <table class="t-ble border border-0 mx-1 pt-1" style="width: 95%; border-collapse: separate; border-spacing: 0 10px;" border="0" cellspacing="10" align="center">
+          <tbody>
+            <tr class="table-row mt-1">
+              <td>
+                <label class="lable-txt d-flex align-items-center" style="font-weight: 500; font-size: large;">
+                  TaskName:
+                  <span class="text-danger font-weight-bold"> *</span>
+                </label>
+              </td>
+              <td class="in-field">
+                <input class="in-field width-80" style="width: 80%; margin-left: 50px;" type="text" placeholder="enter Task Name" name="taskName" [(ngModel)]="task.taskName" maxlength="50" required>
+              </td>
+            </tr>
+            <tr class="table-row mt-1">
+              <td>
+                <label class="lable-txt d-flex align-items-center" style="font-weight: 500; font-size: large;">
+                  <div class="text-center">TaskDescription:</div>
+                  <span class="text-danger font-weight-bold"> *</span>
+                </label>
+              </td>
+              <td>
+                <textarea class="txtarea" style="width: 80%; margin-left: 50px;" rows="2" cols="21" placeholder="enter Task Description" name="taskDescription" [(ngModel)]="task.taskDescription" maxlength="200" required></textarea>
+              </td>
+            </tr>
+            <tr class="table-row mt-1">
+              <td>
+                <label class="lable-txt d-flex align-items-center" style="font-weight: 500; font-size: large;">
+                  AssignedTo:
+                  <span class="text-danger font-weight-bold"> *</span>
+                </label>
+              </td>
+              <td class="in">
+                <select class="dropdown2" style="width: 80%; margin-left: 50px; height: 28px;" name="assignedTo" [(ngModel)]="task.assignedTo">
+                  <option value="">select a user</option>
+                  <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="table-row mt-1">
+              <td>
+                <label class="lable-txt d-flex align-items-center" style="font-weight: 500; font-size: large;">
+                  Priority:
+                  <span class="text-danger font-weight-bold"> *</span>
+                </label>
+              </td>
+              <td>
+                <select class="dropdown" style="width: 80%; margin-left: 50px;" name="priority" [(ngModel)]="task.priority" required>
+                  <option disabled value="">select priority</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="table-row mt-1">
+              <td>
+                <label class="lable-txt d-flex align-items-center" style="font-weight: 500; font-size: large;">
+                  Deadline:
+                  <span class="text-danger font-weight-bold"> *</span>
+                </label>
+              </td>
+              <td class="in">
+                <input class="in-field" style="width: 80%; margin-left: 50px;" type="Date" placeholder="enter the deadline" name="deadline" [(ngModel)]="task.deadline" required>
+              </td>
+            </tr>
+            <tr class="table-row1 mt-1">
+              <td>
+                <label class="lable-txt1 d-flex align-items-center" style="font-weight: 500; font-size: large;">
+                  Status:
+                  <span class="text-danger font-weight-bold"> *</span>
+                </label>
+              </td>
+              <td class="radio-btn1 d-flex justify-content-evenly ml-3" style="padding-left: 20px;">
+                <input type="radio" name="status" value="pending" [checked]="task.status === 'pending'" (change)="handleChange($event)">
+                Pending
+                <input type="radio" name="status" value="inprogress" [checked]="task.status === 'inprogress'" (change)="handleChange($event)">
+                InProgress
+              </td>
+            </tr>
+            <tr></tr>
+            <tr class="table-row mt-1">
+              <td></td>
+              <td class="btn-btn d-flex" style="margin-left: 40px;">
+                <a [routerLink]="['/projectdetails']" [queryParams]="{projectId: projectId}">
+                  <input class="btn2 w-150 h-40 mr-1 m-1 text-white bg-info border border-1 border-solid border-light rounded-2" style="font-size: 18px; width: 150px; height: 40px;" type="button" value="Back">
+                </a>
+                <input class="btn1 w-150 h-40 mr-1 m-1 text-white bg-success border border-1 border-solid border-light rounded-2 opacity-100" style="font-size: 18px; width: 150px; height: 40px;" type="submit" value="Create Task">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+ 

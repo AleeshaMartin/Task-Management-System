@@ -1,0 +1,132 @@
+
+#body {
+  background-image: url("./../../assets/images/AnyConv.com__project-dashboard.png");
+  background-size:cover;
+  /* background-position: fit-content; */
+  background-repeat: no-repeat;
+   height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-body {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.card-body p {
+  margin-bottom: 1rem;
+}
+
+.card-body .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-body .details i {
+  margin-right: 0.5rem;
+  color: #007bff;
+}
+
+.card-body .actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.card-body .actions button {
+  margin: 0 0.5rem;
+}
+
+.no-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.no-projects img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.no-projects h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.no-projects p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.add-project-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin: 1rem auto;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .card-body {
+    font-size: 1rem;
+  }
+
+  .no-projects img {
+    height: 300px;
+  }
+
+  .no-projects h2 {
+    font-size: 1.8rem;
+  }
+
+  .no-projects p {
+    font-size: 1.1rem;
+  }
+}

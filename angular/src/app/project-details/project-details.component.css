@@ -1,0 +1,101 @@
+
+#body {
+    background-image: url("./../../assets/images/AnyConv.com__project-view.png");
+    background-size:cover;
+    /* background-position: fit-content; */
+    background-repeat: no-repeat;
+     height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+  }
+  .project-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .project-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .project-card h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .project-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .project-card .project-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-card .project-details p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-card .project-details p span {
+    font-weight: 600;
+  }
+  
+  .project-card .team-members {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-card .team-members h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .project-card .team-members ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .project-card .team-members li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 767px) {
+    .project-details-container {
+      padding: 1rem;
+    }
+  
+    .project-card {
+      padding: 1.5rem;
+    }
+  
+    .project-card h2 {
+      font-size: 1.8rem;
+    }
+  
+    .project-card p,
+    .project-card .team-members li {
+      font-size: 1rem;
+    }
+  
+    .project-card .team-members h3 {
+      font-size: 1.2rem;
+    }
+  }
+  

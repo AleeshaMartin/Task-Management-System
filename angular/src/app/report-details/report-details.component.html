@@ -1,0 +1,82 @@
+<app-nav-bar></app-nav-bar>
+<div class="container d-flex flex-column align-items-center">
+    <div class="row w-100 justify-content-between">
+      <div class="col-lg-6 text-center">
+        <h4 class="p-3 mb-4" style="font-size: 24px;">Project Id: {{ project.id }} Report</h4>
+      </div>
+  
+    <div class="print-report">
+      <hr>
+      <h3 class="ms-2 text-center">Project Details</h3>
+      <div class="row">
+        <div class="table-responsive container col-12 col-md-6 col-lg-6">
+          <table class="table table-bordered table-striped table-hover" style="height: 470px;">
+            <tbody>
+              <tr>
+                <th class="col-4">Project Id</th>
+                <td class="col-8">{{ project.id }}</td>
+              </tr>
+              <tr>
+                <th class="col-4">Project Name</th>
+                <td class="col-8">{{ project.projectName }}</td>
+              </tr>
+              <tr>
+                <th class="col-4">Description</th>
+                <td class="col-8">{{ project.description }}</td>
+              </tr>
+              <tr>
+                <th class="col-4">Team Members</th>
+                <td class="col-8" ><span *ngFor="let member of selectedValues; let last = last">{{ member.label }}{{ !last ? ', ' : '' }}</span> </td>
+              </tr>
+              <tr>
+                <th class="col-4">Completed Task</th>
+                <td class="col-8">{{ completedTask }}</td>
+              </tr>
+              <tr>
+                <th class="col-4">Total Task</th>
+                <td class="col-8">{{ totalTask }}</td>
+              </tr>
+              <tr>
+                <th class="col-4">Start Date</th>
+                <td class="col-8">{{ project.startDate }}</td>
+              </tr>
+              <tr>
+                <th class="col-4">End Date</th>
+                <td class="col-8">{{ project.endDate }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <h3 class="text-center">Task Details</h3>
+      <div class="table-responsive container">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="col-1 bg-info text-white">Task Id</th>
+              <th class="col-2 bg-info text-white">Task Name</th>
+              <th class="col-3 bg-info text-white">Description</th>
+              <th class="col-2 bg-info text-white">Assigned To</th>
+              <th class="col-1 bg-info text-white">Priority</th>
+              <th class="col-1 bg-info text-white">Deadline</th>
+              <th class="col-1 bg-info text-white">Task Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks">
+              <td>{{ task.taskId }}</td>
+              <td>{{ task.taskName }}</td>
+              <td>{{ task.taskDescription }}</td>
+              <td>{{ task.assignedTo }}</td>
+              <td>{{ task.priority }}</td>
+              <td>{{ task.deadline }}</td>
+              <td>{{ task.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="col-12 text-center" *ngIf="totalTask === 0">No task present</p>
+      </div>
+    </div>
+  </div>
+  
